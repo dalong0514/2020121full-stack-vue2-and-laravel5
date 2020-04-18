@@ -106,6 +106,17 @@ var vm = new Vue({
     prices: sample.prices,
     contracted: true,
     modalOpen: false
+  },
+  watch: {
+    modalOpen: function modalOpen() {
+      var className = "modal-open";
+
+      if (this.modalOpen) {
+        document.body.classList.add(className);
+      } else {
+        document.body.classList.remove(className);
+      }
+    }
   }
 });
 

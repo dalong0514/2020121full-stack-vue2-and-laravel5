@@ -45,22 +45,5 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="data.js"></script>
     <script src="js/vueapp.js"></script>
-
-    <script>
-        var vm1 = new Vue({
-            // el: "#app1",
-            data: {
-                message: "Hello World",
-            },
-            watch: {
-                message: function(newVal, oldVal) {
-                    console.log(oldVal, ", ", newVal);
-                },
-            },
-        });
-        setTimeout(function() {
-            vm1.message = "Goodbye world";
-        }, 2000);
-    </script>
 </body>
 </html>
