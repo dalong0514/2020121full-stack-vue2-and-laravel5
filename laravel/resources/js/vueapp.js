@@ -7,5 +7,7 @@ var vm = new Vue({
         headerImageStyle: {
             "background-image": "url('image/header.jpg')"
         },
+        amenities: sample.amenities,
+        prices: sample.prices,
     },
 });
