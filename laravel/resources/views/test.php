@@ -10,8 +10,13 @@
     <div id="toolbar"></div>
     <div id="app">
         <div class="header">
-            <!-- <img src="image/header.jpg" alt=""> -->
-            <div class="header-img" v-bind:style="headerImageStyle"></div>
+            <div 
+            class="header-img" 
+            v-bind:style="headerImageStyle"
+            v-on:click="modalOpen = true"
+            >
+                <button class="view-photos">View Photos</button>
+            </div>
         </div>
         <div class="container">
             <div class="heading">
@@ -22,10 +27,17 @@
             <div class="about">
                 <h3>About this listing</h3>
                 <p v-bind:class="{contracted: contracted}">{{ about }}</p>
-                <button class="more" v-on:click="contracted = false">+ More</button>
+                <button class="more" v-if="contracted" v-on:click="contracted = false">
+                    + More
+                </button>
             </div>
             <div class="lists">
                 <div v-for="amenity in amenities">{{ amenity.title }}</div>
+            </div>
+        </div>
+        <div id="modal" v-bind:class="{ show: modalOpen }">
+            <div class="modal-content">
+                <img src="image/header.jpg"/>
             </div>
         </div>
     </div>

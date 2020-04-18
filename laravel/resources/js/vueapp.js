@@ -10,5 +10,6 @@ var vm = new Vue({
         amenities: sample.amenities,
         prices: sample.prices,
         contracted: true,
+        modalOpen: false,
     },
 });

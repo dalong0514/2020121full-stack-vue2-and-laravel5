@@ -5,6 +5,11 @@ body {
     font-size: 17px;
     margin: 0;
 }
+
+body.modal-open {
+    overflow: hidden;
+    position: fixed;
+}
   
 .container {
 margin: 0 auto;
@@ -77,6 +82,55 @@ hr {
     background-position: 50% 50%;
     background-color: #f5f5f5;
     height: 100%;
+    cursor: pointer;
+    position: relative;
+}
+
+button {
+    border-radius: 4px;
+    border: 1px solid #c4c4c4;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    line-height: 1.43;
+    user-select: none;
+    white-space: nowrap;
+    cursor: pointer;
+    background: white;
+    color: #484848;
+    padding: 7px 18px;
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.header .header-img .view-photos {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+#modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 2000;
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.modal-content {
+    height: 100%;
+    max-width: 105vh;
+    padding-top: 12vh;
+    margin: 0 auto;
+    position: relative;
+}
+
+.modal-content img {
+    max-width: 100%;
 }
 
 .about p.contracted {
@@ -84,7 +138,7 @@ hr {
     overflow: hidden;
 }
 
-.button {
+button {
     text-align: center;
     vertical-align: middle;
     user-select: none;
