@@ -93,6 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+// Vue 实例
 var vm = new Vue({
   el: "#app",
   data: {
@@ -107,6 +108,13 @@ var vm = new Vue({
     contracted: true,
     modalOpen: false
   },
+  methods: {
+    escapeKeyListenser: function escapeKeyListenser(evt) {
+      if (evt.keyCode === 27 && this.modalOpen) {
+        vm.modalOpen = false;
+      }
+    }
+  },
   watch: {
     modalOpen: function modalOpen() {
       var className = "modal-open";
@@ -117,6 +125,12 @@ var vm = new Vue({
         document.body.classList.remove(className);
       }
     }
+  },
+  created: function created() {
+    document.addEventListener('keyup', this.escapeKeyListenser);
+  },
+  destoryed: function destoryed() {
+    document.removeEventListener('keyup', this.escapeKeyListenser);
   }
 });
 document.addEventListener('keyup', function (evt) {

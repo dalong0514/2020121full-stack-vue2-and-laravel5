@@ -1,3 +1,4 @@
+// Vue 实例
 var vm = new Vue({
     el: "#app",
     data: {
@@ -12,6 +13,13 @@ var vm = new Vue({
         contracted: true,
         modalOpen: false,
     },
+    methods: {
+        escapeKeyListenser: function(evt) {
+            if (evt.keyCode === 27 && this.modalOpen) {
+                vm.modalOpen = false;
+            }
+        }
+    },
     watch: {
         modalOpen: function() {
             var className = "modal-open";
@@ -21,6 +29,12 @@ var vm = new Vue({
                 document.body.classList.remove(className);
             }
         },
+    },
+    created: function() {
+        document.addEventListener('keyup', this.escapeKeyListenser);
+    },
+    destoryed: function() {
+        document.removeEventListener('keyup', this.escapeKeyListenser);
     },
 });
 
