@@ -36,6 +36,9 @@
             </div>
         </div>
         <div id="modal" v-bind:class="{ show: modalOpen }">
+            <button v-on:click="modalOpen = false" class="modal-close">
+                &times;
+            </button>
             <div class="modal-content">
                 <img src="image/header.jpg"/>
             </div>

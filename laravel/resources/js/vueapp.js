@@ -23,3 +23,9 @@ var vm = new Vue({
         },
     },
 });
+
+document.addEventListener('keyup', function(evt) {
+    if (evt.keyCode === 27 && vm.modalOpen) {
+        vm.modalOpen = false;
+    }
+});
