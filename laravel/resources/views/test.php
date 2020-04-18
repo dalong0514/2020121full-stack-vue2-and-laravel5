@@ -21,7 +21,8 @@
             <hr>
             <div class="about">
                 <h3>About this listing</h3>
-                <p>{{ about }}</p>
+                <p v-bind:class="{contracted: contracted}">{{ about }}</p>
+                <button class="more" v-on:click="contracted = false">+ More</button>
             </div>
             <div class="lists">
                 <div v-for="amenity in amenities">{{ amenity.title }}</div>

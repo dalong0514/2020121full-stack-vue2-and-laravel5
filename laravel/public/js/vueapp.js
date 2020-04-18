@@ -103,7 +103,8 @@ var vm = new Vue({
       "background-image": "url('image/header.jpg')"
     },
     amenities: sample.amenities,
-    prices: sample.prices
+    prices: sample.prices,
+    contracted: true
   }
 });
 
