@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" href="node_modules/open-sans-all/css/open-sans.css">
-    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
 </head>
 <body>
     <div id="toolbar"></div>
