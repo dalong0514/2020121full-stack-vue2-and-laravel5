@@ -9,6 +9,10 @@
 <body>
     <div id="toolbar"></div>
     <div id="app">
+        <div class="header">
+            <!-- <img src="image/header.jpg" alt=""> -->
+            <div class="header-img" v-bind:style="headerImageStyle"></div>
+        </div>
         <div class="heading">
             <h1>{{ title }}</h1>
             <p>{{ address }}</p>
@@ -21,6 +25,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="data.js"></script>
     <script src="js/vueapp.js"></script>
 </body>
 </html>
