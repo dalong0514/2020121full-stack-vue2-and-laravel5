@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
     <div id="toolbar"></div>
@@ -21,6 +21,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="app.js"></script>
+    <script src="js/vueapp.js"></script>
 </body>
 </html>
