@@ -1,14 +1,17 @@
 // import Vue from 'vue';
 window.Vue = require('vue');
+import { populateAmenitiesAndPrices } from './helpers';
 
 let model = JSON.parse(window.vuebnb_listing_model);
+model = populateAmenitiesAndPrices(model);
+
 // Vue 实例
 var vm = new Vue({
     el: "#app",
     // ployfills
     data: Object.assign(model, {
         headerImageStyle: {
-            "background-image": "url('images/header.jpg')"
+            "background-image": `url(${model.images[0]})`
         },
         contracted: true,
         modalOpen: false,
@@ -43,3 +46,5 @@ document.addEventListener('keyup', function(evt) {
         vm.modalOpen = false;
     }
 });
+
+console.log(vm.data);
