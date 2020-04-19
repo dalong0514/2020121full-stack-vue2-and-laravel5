@@ -40,7 +40,7 @@
                 &times;
             </button>
             <div class="modal-content">
-                <img src="image/header.jpg"/>
+                <img src="images/header.jpg"/>
             </div>
         </div>
     </div>

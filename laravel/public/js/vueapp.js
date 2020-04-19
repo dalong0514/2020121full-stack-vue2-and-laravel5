@@ -101,7 +101,7 @@ var vm = new Vue({
     address: sample.address,
     about: sample.about,
     headerImageStyle: {
-      "background-image": "url('image/header.jpg')"
+      "background-image": "url('images/header.jpg')"
     },
     amenities: sample.amenities,
     prices: sample.prices,
