@@ -1,4 +1,6 @@
 import sample from './data'
+// import Vue from 'vue';
+window.Vue = require('vue');
 
 // Vue 实例
 var vm = new Vue({
