@@ -1,14 +1,14 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 // load all listings
-$listing = \App\Listing::all();
-class Listing extends Model
+// $listing = \App\Listing::all();
+class ListingModel extends Model
 {
-    //
+    protected $table = 'listings';
     protected $casts = [
         'amenity_wifi' => 'boolean',
         'amenity_pets_allowed' => 'boolean',
@@ -17,4 +17,9 @@ class Listing extends Model
         'amenity_breakfast' => 'boolean',
         'amenity_laptop' => 'boolean'
     ];
+
+    public static function getListing() {
+        return self::query()
+            ->get();
+    }
 }

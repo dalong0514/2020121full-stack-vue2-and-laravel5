@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
-use App\Listing;
-
+use Illuminate\Support\Facades\Route;
+use App\Models\ListingModel;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,10 +13,12 @@ use App\Listing;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-Route::get('listing/{listing}', function(Listing $listing) {
-    return $listing->toJson();
 });
-});
+
+// Route::get('/listing/{listing}', function(ListingModel $listing) {
+//     return $listing->toJson();
+// });
+Route::get('/listing/{listing}', 'ListingController@get_listing_api');
+// Route::get('/listing', 'ListingController@get_listing_api');
