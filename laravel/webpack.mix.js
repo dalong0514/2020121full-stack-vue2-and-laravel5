@@ -20,8 +20,4 @@ mix.js('resources/js/app.js', 'public/js')
     ], 'public/css/app.css')
     .copy('node_modules/open-sans-all/fonts', 'public/fonts')
     .copy('node_modules/font-awesome/fonts', 'public/fonts')
-    .copy('resources/images', 'public/images')
-    .browserSync({
-        proxy: process.env.APP_URL,
-        open: false,
-    });
+    .copy('resources/images', 'public/images');
