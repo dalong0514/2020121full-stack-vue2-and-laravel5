@@ -54,4 +54,4 @@ var sample = {
       }
     ]
   };
-  
+export default sample;
