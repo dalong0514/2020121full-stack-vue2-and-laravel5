@@ -5,18 +5,14 @@ window.Vue = require('vue');
 // Vue 实例
 var vm = new Vue({
     el: "#app",
-    data: {
-        title: sample.title,
-        address: sample.address,
-        about: sample.about,
+    // ployfills
+    data: Object.assign(sample, {
         headerImageStyle: {
             "background-image": "url('images/header.jpg')"
         },
-        amenities: sample.amenities,
-        prices: sample.prices,
         contracted: true,
         modalOpen: false,
-    },
+    }),
     methods: {
         escapeKeyListenser: function(evt) {
             if (evt.keyCode === 27 && this.modalOpen) {

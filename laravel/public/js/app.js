@@ -12587,18 +12587,14 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 var vm = new Vue({
   el: "#app",
-  data: {
-    title: _data__WEBPACK_IMPORTED_MODULE_0__["default"].title,
-    address: _data__WEBPACK_IMPORTED_MODULE_0__["default"].address,
-    about: _data__WEBPACK_IMPORTED_MODULE_0__["default"].about,
+  // ployfills
+  data: Object.assign(_data__WEBPACK_IMPORTED_MODULE_0__["default"], {
     headerImageStyle: {
       "background-image": "url('images/header.jpg')"
     },
-    amenities: _data__WEBPACK_IMPORTED_MODULE_0__["default"].amenities,
-    prices: _data__WEBPACK_IMPORTED_MODULE_0__["default"].prices,
     contracted: true,
     modalOpen: false
-  },
+  }),
   methods: {
     escapeKeyListenser: function escapeKeyListenser(evt) {
       if (evt.keyCode === 27 && this.modalOpen) {
