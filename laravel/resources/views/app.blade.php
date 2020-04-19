@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/app.css" type="text/css">
+    <script type="text/javascript">
+        window.vuebnb_listing_model = "{!!addslashes(json_encode($model))!!}";
+        console.log(JSON.parse(window.vuebnb_listing_model));
+    </script>
 </head>
 <body>
     <div id="toolbar">
@@ -49,22 +53,5 @@
     </div>
 
     <script src="js/app.js"></script>
-
-    <script>
-        var vm1 = new Vue({
-            // el: "#app1",
-            data: {
-                message: "Hello World",
-            },
-            watch: {
-                message: function(newVal, oldVal) {
-                    console.log(oldVal, ", ", newVal);
-                },
-            },
-        });
-        setTimeout(function() {
-            vm1.message = "Goodbye world";
-        }, 2000);
-    </script>
 </body>
 </html>

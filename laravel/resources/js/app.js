@@ -1,12 +1,12 @@
-import sample from './data'
 // import Vue from 'vue';
 window.Vue = require('vue');
 
+let model = JSON.parse(window.vuebnb_listing_model);
 // Vue 实例
 var vm = new Vue({
     el: "#app",
     // ployfills
-    data: Object.assign(sample, {
+    data: Object.assign(model, {
         headerImageStyle: {
             "background-image": "url('images/header.jpg')"
         },

@@ -14,5 +14,6 @@ use Illuminate\Support\Facades\Route;
 use App\Models\ListingModel;
 
 Route::get('/listing/{listing}', function(ListingModel $listing) {
-    return view('app');
+    $model = $listing->toArray();
+    return view('app', [ 'model' => $model ]);
 });
