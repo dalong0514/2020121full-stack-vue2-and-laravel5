@@ -52,7 +52,7 @@
         </div>
     </div>
 
-    <script src="js/app.js"></script>
+    <script src="{{ 'js/app.js' }}" type="text/javascript"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
 </body>
 </html>
