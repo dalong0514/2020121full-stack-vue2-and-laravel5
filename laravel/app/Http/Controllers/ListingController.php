@@ -23,4 +23,19 @@ class ListingController extends Controller
         $listing = ListingModel::getListing();
         return $listing->toJson();
     }
+
+    public function get_listing_web(ListingModel $listing)
+    {
+        $model = $listing->toArray();
+        $model = $this->add_image_urls($model, $listing->id);
+        return view('app', ['model' => $model]);
+    }
+
+    private function add_image_urls($model, $id)
+    {
+        for($i = 1; $i <=4; $i++) {
+            $model['image_' . $i] = asset('images/' . $id . '/Image_' . $i . '.jpg');
+        }
+        return $model;
+    }
 }

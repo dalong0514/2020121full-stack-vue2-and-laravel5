@@ -13,7 +13,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\ListingModel;
 
-Route::get('/listing/{listing}', function(ListingModel $listing) {
-    $model = $listing->toArray();
-    return view('app', [ 'model' => $model ]);
-});
+// Route::get('/listing/{listing}', function(ListingModel $listing) {
+//     $model = $listing->toArray();
+//     return view('app', [ 'model' => $model ]);
+// });
+
+Route::get('/listing/{listing}', 'ListingController@get_listing_web');
