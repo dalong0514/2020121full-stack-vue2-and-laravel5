@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="css/app.css" type="text/css">
 </head>
 <body>
-    <div id="toolbar"></div>
+    <div id="toolbar">
+        <img src="{{ 'images/logo.png' }}" class="icon">
+        <h1>vuebnb</h1>
+    </div>
     <div id="app">
         <div class="header">
             <div 
@@ -40,7 +43,7 @@
                 &times;
             </button>
             <div class="modal-content">
-                <img src="images/header.jpg"/>
+                <img src="{{ 'images/header.jpg' }}"/>
             </div>
         </div>
     </div>
