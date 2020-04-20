@@ -66,6 +66,7 @@
             </button>
             <div class="modal-content">
                 <image-carousel><image-carousel/> 
+                <!-- <img v-bind:src="images[0]"/> -->
             </div>
         </div>
     </div>

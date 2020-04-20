@@ -9,16 +9,17 @@ model = populateAmenitiesAndPrices(model);
 // images carousel
 Vue.component('image-carousel', {
     template: `<div class="image-carousel">
-                    <img v-bind:src="images[0]"/>>
+                    <img v-bind:src="images[1]"/>>
                </div>`,
     data() {
         return {
-            images: [
-                'images/1/Image_1.jpg',
-                'images/1/Image_2.jpg',
-                'images/1/Image_3.jpg',
-                'images/1/Image_4.jpg',
-            ]
+            // images: [
+            //     'images/1/Image_1.jpg',
+            //     'images/1/Image_2.jpg',
+            //     'images/1/Image_3.jpg',
+            //     'images/1/Image_4.jpg',
+            // ],
+            images: Object.assign(model).images,
         }
     }
 });
