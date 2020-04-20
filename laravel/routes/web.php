@@ -18,4 +18,4 @@ use App\Models\ListingModel;
 //     return view('app', [ 'model' => $model ]);
 // });
 
-Route::get('/{listing}', 'ListingController@get_listing_web');
+Route::get('/listing/{listing}', 'ListingController@get_listing_web');

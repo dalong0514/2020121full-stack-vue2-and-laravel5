@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{{ 'css/app.css' }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}" type="text/css">
     <script type="text/javascript">
         window.vuebnb_listing_model = "{!!addslashes(json_encode($model))!!}";
         console.log(JSON.parse(window.vuebnb_listing_model));
@@ -12,7 +12,7 @@
 </head>
 <body>
     <div id="toolbar">
-        <img src="images/logo.png" class="icon">
+        <img src="{{ asset('images/logo.png') }}" class="icon">
         <h1>vuebnb</h1>
     </div>
     <div id="app">
@@ -47,12 +47,12 @@
                 &times;
             </button>
             <div class="modal-content">
-                <img src="{{ 'images/header.jpg' }}"/>
+                <img src="{{ asset('images/header.jpg') }}"/>
             </div>
         </div>
     </div>
 
-    <script src="{{ 'js/app.js' }}" type="text/javascript"></script>
+    <script src="{{ asset('js/app.js') }}" type="text/javascript"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
 </body>
 </html>
