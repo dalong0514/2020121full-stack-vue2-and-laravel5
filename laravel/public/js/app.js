@@ -12588,7 +12588,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var model = JSON.parse(window.vuebnb_listing_model);
-model = Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["populateAmenitiesAndPrices"])(model); // Vue 实例
+model = Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["populateAmenitiesAndPrices"])(model); // images carousel
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('image-carousel', {
+  template: "<div class=\"image-carousel\">\n                    <img v-bind:src=\"images[0]\"/>>\n               </div>",
+  data: function data() {
+    return {
+      images: ['images/1/Image_1.jpg', 'images/1/Image_2.jpg', 'images/1/Image_3.jpg', 'images/1/Image_4.jpg']
+    };
+  }
+}); // Vue 实例
 
 var vm = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: "#app",
