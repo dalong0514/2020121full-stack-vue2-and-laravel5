@@ -47,5 +47,3 @@ document.addEventListener('keyup', function(evt) {
         vm.modalOpen = false;
     }
 });
-
-console.log(vm.data);

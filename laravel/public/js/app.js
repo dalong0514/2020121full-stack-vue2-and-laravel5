@@ -12571,10 +12571,10 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "./resources/js/app.js":
-/*!*****************************!*\
-  !*** ./resources/js/app.js ***!
-  \*****************************/
+/***/ "./resources/assets/js/app.js":
+/*!************************************!*\
+  !*** ./resources/assets/js/app.js ***!
+  \************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -12582,7 +12582,7 @@ module.exports = g;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers */ "./resources/js/helpers.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers */ "./resources/assets/js/helpers.js");
 // import "core-js/fn/object/assign";
  // window.Vue = require('vue');
 
@@ -12630,14 +12630,13 @@ document.addEventListener('keyup', function (evt) {
     vm.modalOpen = false;
   }
 });
-console.log(vm.data);
 
 /***/ }),
 
-/***/ "./resources/js/helpers.js":
-/*!*********************************!*\
-  !*** ./resources/js/helpers.js ***!
-  \*********************************/
+/***/ "./resources/assets/js/helpers.js":
+/*!****************************************!*\
+  !*** ./resources/assets/js/helpers.js ***!
+  \****************************************/
 /*! exports provided: populateAmenitiesAndPrices, groupByCountry */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -12740,13 +12739,13 @@ var groupByCountry = function groupByCountry(listings) {
 /***/ }),
 
 /***/ 0:
-/*!***********************************!*\
-  !*** multi ./resources/js/app.js ***!
-  \***********************************/
+/*!******************************************!*\
+  !*** multi ./resources/assets/js/app.js ***!
+  \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/Daglas/GitHub/bookcode/2020121Full-Stack-Vuejs2-and-Laravel5/laravel/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/Daglas/GitHub/bookcode/2020121Full-Stack-Vuejs2-and-Laravel5/laravel/resources/assets/js/app.js */"./resources/assets/js/app.js");
 
 
 /***/ })
