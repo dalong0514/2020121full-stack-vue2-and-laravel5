@@ -9,7 +9,7 @@ model = populateAmenitiesAndPrices(model);
 // images carousel
 Vue.component('image-carousel', {
     template: `<div class="image-carousel">
-                    <img v-bind:src="images[index]"/>>
+                    <img v-bind:src="image"/>>
                </div>`,
     data() {
         return {
@@ -21,6 +21,11 @@ Vue.component('image-carousel', {
             // ],
             images: Object.assign(model).images,
             index: 0,
+        }
+    },
+    computed: {
+        image() {
+            return this.images[this.index];
         }
     }
 });
@@ -66,3 +71,19 @@ document.addEventListener('keyup', function(evt) {
         vm.modalOpen = false;
     }
 });
+// console.log(vm);
+
+// var vm1 = new Vue({
+//     el: "#app1",
+//     data: {
+//         val: 1,
+//     },
+//     computed: {
+//         message() {
+//             return `the value is ${this.val}`;
+//         },
+//     },
+// });
+// setTimeout(function() {
+//     vm.val = 2;
+// }, 2000);

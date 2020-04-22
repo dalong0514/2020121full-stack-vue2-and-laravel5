@@ -12591,7 +12591,7 @@ var model = JSON.parse(window.vuebnb_listing_model);
 model = Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["populateAmenitiesAndPrices"])(model); // images carousel
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('image-carousel', {
-  template: "<div class=\"image-carousel\">\n                    <img v-bind:src=\"images[index]\"/>>\n               </div>",
+  template: "<div class=\"image-carousel\">\n                    <img v-bind:src=\"image\"/>>\n               </div>",
   data: function data() {
     return {
       // images: [
@@ -12603,6 +12603,11 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('image-carousel', {
       images: Object.assign(model).images,
       index: 0
     };
+  },
+  computed: {
+    image: function image() {
+      return this.images[this.index];
+    }
   }
 }); // Vue 实例
 
@@ -12645,7 +12650,21 @@ document.addEventListener('keyup', function (evt) {
   if (evt.keyCode === 27 && vm.modalOpen) {
     vm.modalOpen = false;
   }
-});
+}); // console.log(vm);
+// var vm1 = new Vue({
+//     el: "#app1",
+//     data: {
+//         val: 1,
+//     },
+//     computed: {
+//         message() {
+//             return `the value is ${this.val}`;
+//         },
+//     },
+// });
+// setTimeout(function() {
+//     vm.val = 2;
+// }, 2000);
 
 /***/ }),
 
