@@ -9,7 +9,7 @@ model = populateAmenitiesAndPrices(model);
 // images carousel
 Vue.component('image-carousel', {
     template: `<div class="image-carousel">
-                    <img v-bind:src="images[1]"/>>
+                    <img v-bind:src="images[index]"/>>
                </div>`,
     data() {
         return {
@@ -20,6 +20,7 @@ Vue.component('image-carousel', {
             //     'images/1/Image_4.jpg',
             // ],
             images: Object.assign(model).images,
+            index: 0,
         }
     }
 });

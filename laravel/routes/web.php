@@ -10,9 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-// use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Route;
 
-// Route::get('/{listing}', function(ListingModel $listing) {
+// Route::get('/listing/{listing}', function(ListingModel $listing) {
 //     $model = $listing->toArray();
 //     return view('app', [ 'model' => $model ]);
 // });
