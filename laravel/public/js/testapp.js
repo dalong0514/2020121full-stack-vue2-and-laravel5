@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -12571,10 +12571,10 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "./resources/assets/js/app.js":
-/*!************************************!*\
-  !*** ./resources/assets/js/app.js ***!
-  \************************************/
+/***/ "./resources/assets/js/testapp.js":
+/*!****************************************!*\
+  !*** ./resources/assets/js/testapp.js ***!
+  \****************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -12582,205 +12582,38 @@ module.exports = g;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers */ "./resources/assets/js/helpers.js");
-// import "core-js/fn/object/assign";
  // window.Vue = require('vue');
 
-
-var model = JSON.parse(window.vuebnb_listing_model);
-model = Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["populateAmenitiesAndPrices"])(model); // images carousel
-
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('image-carousel', {
-  template: "<div class=\"image-carousel\">\n                    <img v-bind:src=\"image\">\n                    <div class=\"controls\">\n                        <carousel-control></carousel-control>\n                        <carousel-control></carousel-control>\n                    </div>\n               </div>",
-  data: function data() {
-    return {
-      // images: [
-      //     'images/1/Image_1.jpg',
-      //     'images/1/Image_2.jpg',
-      //     'images/1/Image_3.jpg',
-      //     'images/1/Image_4.jpg',
-      // ],
-      images: Object.assign(model).images,
-      index: 0
-    };
-  },
-  computed: {
-    image: function image() {
-      return this.images[this.index];
-    }
-  },
-  components: {
-    'carousel-control': {
-      template: "<i class=\"carousel-control fa fa-2x fa-chevron-left\"></i>"
-    }
-  }
-}); // Vue 实例
-
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('my-component', {
+  template: '<div>{{ title }}</div>',
+  props: ['title']
+});
 var vm = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: "#app",
-  // ployfills
-  data: Object.assign(model, {
-    headerImageStyle: {
-      "background-image": "url(".concat(model.images[0], ")")
-    },
-    contracted: true,
-    modalOpen: false
-  }),
-  methods: {
-    escapeKeyListenser: function escapeKeyListenser(evt) {
-      if (evt.keyCode === 27 && this.modalOpen) {
-        vm.modalOpen = false;
-      }
-    }
-  },
-  watch: {
-    modalOpen: function modalOpen() {
-      var className = "modal-open";
-
-      if (this.modalOpen) {
-        document.body.classList.add(className);
-      } else {
-        document.body.classList.remove(className);
-      }
-    }
-  },
-  created: function created() {
-    document.addEventListener('keyup', this.escapeKeyListenser);
-  },
-  destoryed: function destoryed() {
-    document.removeEventListener('keyup', this.escapeKeyListenser);
+  data: {
+    title: "hello world"
   }
-}); // console.log(vm);
-// var vm1 = new Vue({
-//     el: "#app1",
-//     data: {
-//         val: 1,
-//     },
-//     computed: {
-//         message() {
-//             return `the value is ${this.val}`;
-//         },
-//     },
-// });
-// setTimeout(function() {
-//     vm.val = 2;
-// }, 2000);
+});
+var vm1 = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
+  el: "#app1",
+  data: {
+    title: "hello dalong"
+  }
+});
+setTimeout(function () {
+  vm.title = "goodbye world";
+}, 2000);
 
 /***/ }),
 
-/***/ "./resources/assets/js/helpers.js":
-/*!****************************************!*\
-  !*** ./resources/assets/js/helpers.js ***!
-  \****************************************/
-/*! exports provided: populateAmenitiesAndPrices, groupByCountry */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "populateAmenitiesAndPrices", function() { return populateAmenitiesAndPrices; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "groupByCountry", function() { return groupByCountry; });
-var amenities = new Map();
-amenities.set('amenity_wifi', {
-  title: 'Wireless Internet',
-  icon: 'fa-wifi'
-});
-amenities.set('amenity_pets_allowed', {
-  title: 'Pets Allowed',
-  icon: 'fa-paw'
-});
-amenities.set('amenity_tv', {
-  title: 'TV',
-  icon: 'fa-television'
-});
-amenities.set('amenity_kitchen', {
-  title: 'Kitchen',
-  icon: 'fa-cutlery'
-});
-amenities.set('amenity_breakfast', {
-  title: 'Breakfast',
-  icon: 'fa-coffee'
-});
-amenities.set('amenity_laptop', {
-  title: 'Laptop friendly workspace',
-  icon: 'fa-laptop'
-});
-var prices = new Map();
-prices.set('price_per_night', 'Per night');
-prices.set('price_extra_people', 'Extra people');
-prices.set('price_weekly_discount', 'Weekly discount');
-prices.set('price_monthly_discount', 'Monthly discount');
-
-var populateAmenitiesAndPrices = function populateAmenitiesAndPrices(state) {
-  if (!state) return {};
-  var obj = {
-    id: state.id,
-    title: state.title,
-    address: state.address,
-    about: state.about,
-    amenities: [],
-    prices: [],
-    images: []
-  };
-
-  for (var key in state) {
-    var arr = key.split("_");
-
-    if (arr[0] === 'amenity' && state[key]) {
-      obj.amenities.push(key);
-    }
-
-    if (arr[0] === 'price') {
-      obj.prices.push({
-        title: key,
-        value: state[key]
-      });
-    }
-
-    if (arr[0] === 'image') {
-      obj.images.push(state[key]);
-    }
-  }
-
-  obj.amenities = obj.amenities.map(function (item) {
-    return amenities.get(item);
-  });
-  obj.prices = obj.prices.map(function (item) {
-    item.title = prices.get(item.title);
-    return item;
-  });
-  return obj;
-};
-
-
-
-var groupByCountry = function groupByCountry(listings) {
-  if (!listings) return {};
-  return listings.reduce(function (rv, x) {
-    var key = ['Taiwan', 'Poland', 'Cuba'].find(function (country) {
-      return x.address.indexOf(country) > -1;
-    });
-
-    if (!rv[key]) {
-      rv[key] = [];
-    }
-
-    rv[key].push(x);
-    return rv;
-  }, {});
-};
-
-
-
-/***/ }),
-
-/***/ 0:
-/*!******************************************!*\
-  !*** multi ./resources/assets/js/app.js ***!
-  \******************************************/
+/***/ 1:
+/*!**********************************************!*\
+  !*** multi ./resources/assets/js/testapp.js ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/Daglas/GitHub/bookcode/2020121Full-Stack-Vuejs2-and-Laravel5/laravel/resources/assets/js/app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! /Users/Daglas/GitHub/bookcode/2020121Full-Stack-Vuejs2-and-Laravel5/laravel/resources/assets/js/testapp.js */"./resources/assets/js/testapp.js");
 
 
 /***/ })

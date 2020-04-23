@@ -18,3 +18,6 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/listing/{listing}', 'ListingController@get_listing_web');
+Route::get('/test', function() {
+    return view('test');
+});

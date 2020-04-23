@@ -20,7 +20,7 @@
             <div 
             class="header-img" 
             v-bind:style="headerImageStyle"
-            v-on:click="modalOpen = true"
+            v-on:click="modalOpen=true"
             >
                 <button class="view-photos">View Photos</button>
             </div>
