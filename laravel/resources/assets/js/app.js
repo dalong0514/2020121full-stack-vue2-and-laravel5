@@ -11,8 +11,8 @@ Vue.component('image-carousel', {
     template: `<div class="image-carousel">
                     <img v-bind:src="image">
                     <div class="controls">
-                        <carousel-control dir="left"></carousel-control>
-                        <carousel-control dir="right"></carousel-control>
+                        <carousel-control dir="left" @change-image="changeImage"></carousel-control>
+                        <carousel-control dir="right" @changeImage="changeImage"></carousel-control>
                     </div>
                </div>`,
     props: ['images'],
@@ -41,6 +41,18 @@ Vue.component('image-carousel', {
                 }
             },
         }
+    },
+    methods: {
+        changeImage(val) {
+            let newVal = this.index + parseInt(val);
+            if (newVal < 0) {
+                this.index = this.images.length - 1;
+            } else if (newVal === this.images.length) {
+                this.index = 0;
+            } else {
+                this.index = newVal;
+            }
+        },
     },
 });
 

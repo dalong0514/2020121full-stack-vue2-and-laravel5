@@ -12591,7 +12591,7 @@ var model = JSON.parse(window.vuebnb_listing_model);
 model = Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["populateAmenitiesAndPrices"])(model); // images carousel
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('image-carousel', {
-  template: "<div class=\"image-carousel\">\n                    <img v-bind:src=\"image\">\n                    <div class=\"controls\">\n                        <carousel-control dir=\"left\"></carousel-control>\n                        <carousel-control dir=\"right\"></carousel-control>\n                    </div>\n               </div>",
+  template: "<div class=\"image-carousel\">\n                    <img v-bind:src=\"image\">\n                    <div class=\"controls\">\n                        <carousel-control dir=\"left\" @change-image=\"changeImage\"></carousel-control>\n                        <carousel-control dir=\"right\" @changeImage=\"changeImage\"></carousel-control>\n                    </div>\n               </div>",
   props: ['images'],
   data: function data() {
     return {
@@ -12616,6 +12616,19 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('image-carousel', {
         clicked: function clicked() {
           this.$emit('change-image', this.dir === 'left' ? -1 : 1);
         }
+      }
+    }
+  },
+  methods: {
+    changeImage: function changeImage(val) {
+      var newVal = this.index + parseInt(val);
+
+      if (newVal < 0) {
+        this.index = this.images.length - 1;
+      } else if (newVal === this.images.length) {
+        this.index = 0;
+      } else {
+        this.index = newVal;
       }
     }
   }
