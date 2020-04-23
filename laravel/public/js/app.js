@@ -12591,16 +12591,10 @@ var model = JSON.parse(window.vuebnb_listing_model);
 model = Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["populateAmenitiesAndPrices"])(model); // images carousel
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('image-carousel', {
-  template: "<div class=\"image-carousel\">\n                    <img v-bind:src=\"image\">\n                    <div class=\"controls\">\n                        <carousel-control></carousel-control>\n                        <carousel-control></carousel-control>\n                    </div>\n               </div>",
+  template: "<div class=\"image-carousel\">\n                    <img v-bind:src=\"image\">\n                    <div class=\"controls\">\n                        <carousel-control dir=\"left\"></carousel-control>\n                        <carousel-control dir=\"right\"></carousel-control>\n                    </div>\n               </div>",
+  props: ['images'],
   data: function data() {
     return {
-      // images: [
-      //     'images/1/Image_1.jpg',
-      //     'images/1/Image_2.jpg',
-      //     'images/1/Image_3.jpg',
-      //     'images/1/Image_4.jpg',
-      // ],
-      images: Object.assign(model).images,
       index: 0
     };
   },
@@ -12611,7 +12605,13 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('image-carousel', {
   },
   components: {
     'carousel-control': {
-      template: "<i class=\"carousel-control fa fa-2x fa-chevron-left\"></i>"
+      template: "<i :class=\"classes\"></i>",
+      props: ['dir'],
+      computed: {
+        classes: function classes() {
+          return 'carousel-control fa fa-2x fa-chevron-' + this.dir;
+        }
+      }
     }
   }
 }); // Vue 实例

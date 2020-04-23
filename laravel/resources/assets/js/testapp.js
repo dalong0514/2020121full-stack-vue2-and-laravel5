@@ -6,20 +6,20 @@ Vue.component('my-component', {
     props: ['title'],
 });
 
-var vm = new Vue({
-    el: "#app",
+var vm2 = new Vue({
+    el: "#app2",
     data: {
         title: "hello world"
     },
 });
 
-var vm1 = new Vue({
-    el: "#app1",
-    data: {
-        title: "hello dalong"
-    },
-});
+// var vm1 = new Vue({
+//     el: "#app1",
+//     data: {
+//         title: "hello dalong"
+//     },
+// });
 
 setTimeout(() => {
-    vm.title = "goodbye world";
+    vm2.title = "goodbye world";
 }, 2000);

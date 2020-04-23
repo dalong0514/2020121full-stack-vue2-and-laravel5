@@ -12588,20 +12588,20 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('my-component', {
   template: '<div>{{ title }}</div>',
   props: ['title']
 });
-var vm = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-  el: "#app",
+var vm2 = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
+  el: "#app2",
   data: {
     title: "hello world"
   }
-});
-var vm1 = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-  el: "#app1",
-  data: {
-    title: "hello dalong"
-  }
-});
+}); // var vm1 = new Vue({
+//     el: "#app1",
+//     data: {
+//         title: "hello dalong"
+//     },
+// });
+
 setTimeout(function () {
-  vm.title = "goodbye world";
+  vm2.title = "goodbye world";
 }, 2000);
 
 /***/ }),

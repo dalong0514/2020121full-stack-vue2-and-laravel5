@@ -65,13 +65,14 @@
                 &times;
             </button>
             <div class="modal-content">
-                <image-carousel><image-carousel/> 
+                <image-carousel :images="images"><image-carousel/> 
                 <!-- <img v-bind:src="images[0]"/> -->
             </div>
         </div>
     </div>
 
     <script src="{{ asset('js/app.js') }}" type="text/javascript"></script>
+    <!-- <script src="{{ asset('js/testapp.js') }}" type="text/javascript"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
     <script>
         // test JS
