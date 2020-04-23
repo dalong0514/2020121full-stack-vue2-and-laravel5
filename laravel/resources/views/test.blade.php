@@ -7,36 +7,32 @@
 </head>
 <body>
     <div id="app">
-        <my-component :title="title"></my-component>
-    </div>
-    <div id="app1">
-        <div>@{{ title }}</div>
+        <my-component @toggle="toggle=!toggle"></my-component>
+        @{{ message }}
     </div>
     <!-- <script src="{{ asset('js/testapp.js') }}" type="text/javascript"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
         Vue.component('my-component', {
-            template: '<div>@{{ title }}</div>',
-            props: ['title'],
+            template: '<div v-on:click="clicked">click me</div>',
+            methods: {
+                clicked: function() {
+                    this.$emit('toggle');
+                },
+            },
         });
 
         var vm = new Vue({
             el: "#app",
             data: {
-                title: "hello world"
+                toggle: false,
+            },
+            computed: {
+                message: function() {
+                    return this.toggle ? 'On' : 'Off';
+                },
             },
         });
-
-        var vm1 = new Vue({
-            el: "#app1",
-            data: {
-                title: "hello dalong"
-            },
-        });
-
-        setTimeout(() => {
-            vm.title = "goodbye world";
-        }, 2000);
     </script>
 </body>
 </html>

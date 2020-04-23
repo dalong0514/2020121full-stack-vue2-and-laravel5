@@ -12605,11 +12605,16 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('image-carousel', {
   },
   components: {
     'carousel-control': {
-      template: "<i :class=\"classes\"></i>",
+      template: "<i :class=\"classes\" @click=\"clicked\"></i>",
       props: ['dir'],
       computed: {
         classes: function classes() {
           return 'carousel-control fa fa-2x fa-chevron-' + this.dir;
+        }
+      },
+      methods: {
+        clicked: function clicked() {
+          this.$emit('change-image', this.dir === 'left' ? -1 : 1);
         }
       }
     }
