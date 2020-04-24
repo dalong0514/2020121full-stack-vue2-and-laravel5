@@ -12591,7 +12591,7 @@ var model = JSON.parse(window.vuebnb_listing_model);
 model = Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["populateAmenitiesAndPrices"])(model); // images carousel
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('image-carousel', {
-  template: "<div class=\"image-carousel\">\n                    <img v-bind:src=\"image\">\n                    <div class=\"controls\">\n                        <carousel-control dir=\"left\" @change-image=\"changeImage\"></carousel-control>\n                        <carousel-control dir=\"right\" @changeImage=\"changeImage\"></carousel-control>\n                    </div>\n               </div>",
+  template: "<div class=\"image-carousel\">\n                    <img v-bind:src=\"image\">\n                    <div class=\"controls\">\n                        <carousel-control dir=\"left\" @change-image=\"changeImage\"></carousel-control>\n                        <carousel-control dir=\"right\" @change-image=\"changeImage\"></carousel-control>\n                    </div>\n               </div>",
   props: ['images'],
   data: function data() {
     return {

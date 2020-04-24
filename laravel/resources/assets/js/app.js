@@ -12,7 +12,7 @@ Vue.component('image-carousel', {
                     <img v-bind:src="image">
                     <div class="controls">
                         <carousel-control dir="left" @change-image="changeImage"></carousel-control>
-                        <carousel-control dir="right" @changeImage="changeImage"></carousel-control>
+                        <carousel-control dir="right" @change-image="changeImage"></carousel-control>
                     </div>
                </div>`,
     props: ['images'],

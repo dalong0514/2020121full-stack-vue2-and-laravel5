@@ -2553,6 +2553,10 @@ button {
     background-color: rgba(0, 0, 0, 0.85);
 }
 
+#modal.show {
+    display: block;
+}
+
 .modal-close {
     position: absolute;
     right: 0;
