@@ -1,6 +1,3 @@
-require('dotenv').config();
-const mix = require('laravel-mix');
-
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -11,6 +8,8 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
+require('dotenv').config();
+const mix = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
     .js('resources/assets/js/testapp.js', 'public/js')
@@ -22,3 +21,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
     .copy('node_modules/open-sans-all/fonts', 'public/fonts')
     .copy('node_modules/font-awesome/fonts', 'public/fonts')
     .copy('resources/assets/images', 'public/images');
+
+mix.options({
+    extractVueStyles: "public/css/vue-style.css"
+});

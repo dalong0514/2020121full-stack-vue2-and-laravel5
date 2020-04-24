@@ -2436,7 +2436,6 @@
   clip: auto;
 }
 
-//
 body {
     font-family: 'Open Sans', sans-serif;
     color: #484848;
@@ -2580,22 +2579,6 @@ button {
     padding-top: 12vh;
     margin: 0 auto;
     position: relative;
-}
-
-.image-carousel img {
-    width: 100%;
-    margin-top: -12vh;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.image-carousel .controls {
-    position: absolute;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
 }
 
 .carousel-control {
