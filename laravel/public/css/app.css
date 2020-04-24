@@ -2581,21 +2581,6 @@ button {
     position: relative;
 }
 
-.carousel-control {
-    padding: 1rem;
-    color: #ffffff;
-    opacity: 0.85;
-}
-
-@media (min-width: 744px) {
-    .container {
-        width: 696px;
-    }
-    .carousel-control {
-        font-size: 3rem;
-    }
-}
-
 .about p.contracted {
     height: 250px;
     overflow: hidden;
