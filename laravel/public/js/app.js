@@ -13249,6 +13249,11 @@ var vm = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   components: {
     ImageCarousel: _components_ImageCarousel_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     ModalWindow: _components_ModalWindow_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
+  methods: {
+    openModal: function openModal() {
+      this.$refs.imagemodal.modalOpen = true;
+    }
   }
 });
 

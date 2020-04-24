@@ -22,4 +22,9 @@ var vm = new Vue({
         ImageCarousel,
         ModalWindow,
     },
+    methods: {
+        openModal() {
+            this.$refs.imagemodal.modalOpen = true;
+        }
+    },
 });
