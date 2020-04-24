@@ -17,11 +17,7 @@
         <h1>vuebnb</h1>
     </div>
     <div id="app">
-        <div class="header">
-            <div class="header-img" :style="headerImageStyle" @click="openModal">
-                <button class="view-photos">View Photos</button>
-            </div>
-        </div>
+        <header-image :image-url="images[0]" @header-clicked="openModal"></header-image>
         <div class="container">
             <div class="heading">
                 <h1>@{{ title }}</h1>
@@ -63,17 +59,7 @@
     </div>
 
     <script src="{{ asset('js/app.js') }}" type="text/javascript"></script>
-    <!-- <script src="{{ asset('js/testapp.js') }}" type="text/javascript"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
-    <script>
-        // test JS
-        let testfun = function() {
-            //
-            console.log("dalong");
-        }
-        testfun();
-        console.log(testfun.prototype);
-    </script>
 
 </body>
 </html>
