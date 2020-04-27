@@ -15,7 +15,7 @@
     import ListingSummary from './ListingSummary';
 
     let serverData = JSON.parse(window.vuebnb_server_data);
-    let listing_groups = groupByCountry(serverData.listing);
+    let listing_groups = groupByCountry(serverData.listings);
 
     export default {
         data() {

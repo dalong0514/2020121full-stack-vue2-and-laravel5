@@ -14,7 +14,7 @@ class ListingController extends Controller
         for($i = 1; $i <=4; $i++) {
             $model['image_' . $i] = asset('images/' . $listing->id . '/Image_' . $i . '.jpg');
         }
-        return collect(['listing' => $model]);
+        return collect(['listings' => $model]);
     }
 
     // adding a path to the model
@@ -30,14 +30,15 @@ class ListingController extends Controller
         return response()->json($data);
     }
 
-    public function get_listing_web(ListingModel $listing)
+    public function get_listing_web(ListingModel $listing, Request $request)
     {
         $data = $this->get_listing($listing);
-        return view('app', ['model' => $data]);
+        $data = $this->add_meta_data($data, $request);
+        return view('app', ['data' => $data]);
     }
 
     // home page
-    public function get_home_web()
+    public function get_home_web(Request $request)
     {
         $collection = ListingModel::all([
             'id', 'address', 'title', 'price_per_night'
@@ -49,7 +50,8 @@ class ListingController extends Controller
             );
             return $listing;
         });
-        $data = collect(['listing' => $collection->toArray()]);
+        $data = collect(['listings' => $collection->toArray()]);
+        $data = $this->add_meta_data($data, $request);
         return view('app', ['data' => $data]);
     }
 }

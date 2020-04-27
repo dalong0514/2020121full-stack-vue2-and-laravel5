@@ -231,7 +231,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var serverData = JSON.parse(window.vuebnb_server_data);
-var listing_groups = Object(_js_helpers__WEBPACK_IMPORTED_MODULE_0__["groupByCountry"])(serverData.listing);
+var listing_groups = Object(_js_helpers__WEBPACK_IMPORTED_MODULE_0__["groupByCountry"])(serverData.listings);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
