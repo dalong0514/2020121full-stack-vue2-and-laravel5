@@ -38,4 +38,10 @@ class ListingController extends Controller
         }
         return $model;
     }
+
+    // 主页
+    public function get_home_web()
+    {
+        return view('app', ['model' => []]);
+    }
 }
