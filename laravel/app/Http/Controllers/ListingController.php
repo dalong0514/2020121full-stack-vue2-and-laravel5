@@ -14,7 +14,7 @@ class ListingController extends Controller
         for($i = 1; $i <=4; $i++) {
             $model['image_' . $i] = asset('images/' . $listing->id . '/Image_' . $i . '.jpg');
         }
-        return collect(['listings' => $model]);
+        return collect(['listing' => $model]);
     }
 
     // adding a path to the model
