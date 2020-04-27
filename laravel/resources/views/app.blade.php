@@ -20,7 +20,7 @@
         <!-- <listing-page></listing-page> -->
     </div>
 
-    <script src="{{ asset('js/app.js') }}" type="text/javascript"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
 </body>
+<script src="{{ asset('js/app.js') }}" type="text/javascript"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
 </html>
