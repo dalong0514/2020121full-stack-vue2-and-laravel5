@@ -2,10 +2,13 @@
 // window.Vue = require('vue');
 import Vue from 'vue';
 import ListingPage from '../components/ListingPage.vue';
+import App from '../components/App.vue';
+import router from './router';
 
 // Vue 实例
 var vm = new Vue({
     el: "#app",
-    render: h => h(ListingPage),
+    render: h => h(App),
     // components: {ListingPage},
+    router,
 });

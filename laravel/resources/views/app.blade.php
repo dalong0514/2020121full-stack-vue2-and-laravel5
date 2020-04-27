@@ -12,10 +12,6 @@
     </script>
 </head>
 <body>
-    <div id="toolbar">
-        <img src="{{ asset('images/logo.png') }}" class="icon">
-        <h1>vuebnb</h1>
-    </div>
     <div id="app">
         <!-- <listing-page></listing-page> -->
     </div>
