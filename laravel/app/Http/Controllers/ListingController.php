@@ -17,6 +17,13 @@ class ListingController extends Controller
         return collect(['listing' => $model]);
     }
 
+    // adding a path to the model
+    private function add_meta_data($collection, $request) {
+        return $collection->merge([
+            'path' => $request->getPathInfo()
+        ]);
+    }
+
     public function get_listing_api(ListingModel $listing)
     {
         $data = $this->get_listing($listing);
