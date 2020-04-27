@@ -7,41 +7,35 @@ use App\Models\ListingModel;
 
 class ListingController extends Controller
 {
-    public function get_listing_api(ListingModel $listing)
+    // refactoring methods
+    public function get_listing($listing)
     {
         $model = $listing->toArray();
-        for ($i = 1; $i <=4; $i++) {
-            $model['image_' . $i] = asset(
-                'images/' . $listing->id . '/Image_' . $i . '.jpg');
+        for($i = 1; $i <=4; $i++) {
+            $model['image_' . $i] = asset('images/' . $listing->id . '/Image_' . $i . '.jpg');
         }
-        return response()->json($model);
+        return collect(['listing' => $model]);
     }
 
-    // test for require data by a function in model file
-    public function get_listing()
+    public function get_listing_api(ListingModel $listing)
     {
-        $listing = ListingModel::getListing();
-        return $listing->toJson();
+        $data = $this->get_listing($listing);
+        return response()->json($data);
     }
 
     public function get_listing_web(ListingModel $listing)
     {
-        $model = $listing->toArray();
-        $model = $this->add_image_urls($model, $listing->id);
-        return view('app', ['model' => $model]);
+        $data = $this->get_listing($listing);
+        return view('app', ['model' => $data]);
     }
 
-    private function add_image_urls($model, $id)
-    {
-        for($i = 1; $i <=4; $i++) {
-            $model['image_' . $i] = asset('images/' . $id . '/Image_' . $i . '.jpg');
-        }
-        return $model;
-    }
-
-    // 主页
+    // home page
     public function get_home_web()
     {
-        return view('app', ['model' => []]);
+        $collection = ListingModel::all([
+            'id', 'address', 'title', 'price_per_night'
+        ]);
+        $data = collect(['listing' => $collection->toArray()]);
+        return view('app', ['data' => $data]);
     }
 }
