@@ -39,13 +39,22 @@
     import HeaderImage from './HeaderImage.vue';
     import FeatureList from './FeatureList.vue';
     import ExpandableText from './ExpandableText.vue';
+    import routeMixin from '../js/route-mixin';
 
     let serverData = JSON.parse(window.vuebnb_server_data);
     let model = populateAmenitiesAndPrices(serverData.listing);
 
     export default {
+        mixins: [routeMixin],
         data() {
-            return Object.assign(model, {});
+            return {
+                title: null,
+                about: null,
+                address: null,
+                amenities: [],
+                prices: [],
+                images: [],
+            }
         },
         components: { 
             ImageCarousel,
@@ -55,9 +64,12 @@
             ExpandableText,
         },
         methods: {
+            assignData({listing}) {
+                Object.assign(this.$data, populateAmenitiesAndPrices(listing));
+            },
             openModal() {
                 this.$refs.imagemodal.modalOpen = true;
-            }
+            },
         },
 }
 </script>
