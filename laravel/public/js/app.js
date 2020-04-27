@@ -19423,7 +19423,7 @@ function getData(to) {
   return new Promise(function (resolve) {
     var serverData = JSON.parse(window.vuebnb_server_data);
 
-    if (!serverData.path || to.path === serverData.path) {
+    if (!serverData.path || to.path !== serverData.path) {
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api".concat(to.path)).then(function (_ref) {
         var data = _ref.data;
         resolve(data);
