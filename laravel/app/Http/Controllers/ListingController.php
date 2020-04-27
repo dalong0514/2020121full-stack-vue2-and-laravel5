@@ -35,6 +35,13 @@ class ListingController extends Controller
         $collection = ListingModel::all([
             'id', 'address', 'title', 'price_per_night'
         ]);
+        // 增加 thumb 图片的 url
+        $collection->transform(function($listing) {
+            $listing->thumb = asset(
+                'images/' . $listing->id . '/Image_1_thumb.jpg'
+            );
+            return $listing;
+        });
         $data = collect(['listing' => $collection->toArray()]);
         return view('app', ['data' => $data]);
     }
