@@ -26,9 +26,6 @@ export default {
     }
 
     @media (min-width: 744px) {
-        .container {
-            width: 696px;
-        }
         .carousel-control {
             font-size: 3rem;
         }
