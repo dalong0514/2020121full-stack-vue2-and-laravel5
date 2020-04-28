@@ -1,6 +1,7 @@
 <template>
     <div id="footer">
-        <div class="container">
+        <div class="hr"></div>
+        <div :class="containerClass">
             <p>
                 <img src="/images/logo_grey.png" class="icon">
                 <span>
@@ -10,6 +11,17 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    computed: {
+        containerClass() {
+            // this.$route.name is either 'home' or 'listing'
+            return `${this.$route.name}-container`;
+        }
+    },
+}
+</script>
 
 <style>
     #footer .icon {
