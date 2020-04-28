@@ -247,7 +247,6 @@ hr {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    overflow: hidden;
 }
 .listing-summaries > .listing-summary {
     margin-right: 15px;
