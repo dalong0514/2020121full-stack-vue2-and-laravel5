@@ -255,3 +255,38 @@ hr {
 .listing-summaries > .listing-summary:last-child {
     margin-right: 0;
 }
+.listing-carousel {
+    position: relative;
+}
+.listing-carousel .controls {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: calc(50% - 45px);
+    left: -45px;
+    width: calc(100% + 90px);
+}
+.listing-carousel .controls .carousel-control {
+    color: #c5c5c5;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.listing-summaries-wrapper {
+    overflow: hidden;
+}
+
+.listing-summary-group {
+    padding-bottom: 20px;
+}
+.listing-summaries {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.listing-summaries > .listing-summary {
+    margin-right: 15px;
+}
+.listing-summaries > .listing-summary:last-child {
+    margin-right: 0;
+}
