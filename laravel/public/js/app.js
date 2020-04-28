@@ -2062,6 +2062,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ListingSave__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ListingSave */ "./resources/assets/components/ListingSave.vue");
 //
 //
 //
@@ -2071,6 +2072,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
     headerImageStyle: function headerImageStyle() {
@@ -2079,7 +2082,10 @@ __webpack_require__.r(__webpack_exports__);
       };
     }
   },
-  props: ['image-url']
+  props: ['image-url', 'id'],
+  components: {
+    ListingSave: _ListingSave__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
 });
 
 /***/ }),
@@ -2237,6 +2243,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -2253,7 +2260,8 @@ __webpack_require__.r(__webpack_exports__);
       address: null,
       amenities: [],
       prices: [],
-      images: []
+      images: [],
+      id: null
     };
   },
   components: {
@@ -2291,8 +2299,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['id'],
+  props: ['id', 'button'],
   methods: {
     toggleSaved: function toggleSaved() {
       this.$store.commit('toggleSaved', this.id);
@@ -2314,6 +2326,9 @@ __webpack_require__.r(__webpack_exports__);
         'fa-heart': saved,
         'fa-heart-o': !saved
       };
+    },
+    message: function message() {
+      return this.isListingSaved ? 'Saved' : 'Save';
     }
   }
 });
@@ -3339,7 +3354,12 @@ var render = function() {
           }
         }
       },
-      [_c("button", { staticClass: "view-photos" }, [_vm._v("View Photos")])]
+      [
+        _c("listing-save", { attrs: { id: _vm.id, button: true } }),
+        _vm._v(" "),
+        _c("button", { staticClass: "view-photos" }, [_vm._v("View Photos")])
+      ],
+      1
     )
   ])
 }
@@ -3448,7 +3468,7 @@ var render = function() {
     [
       _vm.images[0]
         ? _c("header-image", {
-            attrs: { "image-url": _vm.images[0] },
+            attrs: { "image-url": _vm.images[0], id: _vm.id },
             on: { "header-clicked": _vm.openModal }
           })
         : _vm._e(),
@@ -3557,7 +3577,14 @@ var render = function() {
         }
       }
     },
-    [_c("i", { class: _vm.classes })]
+    [
+      _vm.button
+        ? _c("button", [
+            _c("i", { class: _vm.classes }),
+            _vm._v("\n        " + _vm._s(_vm.message) + "\n    ")
+          ])
+        : _vm._e()
+    ]
   )
 }
 var staticRenderFns = []

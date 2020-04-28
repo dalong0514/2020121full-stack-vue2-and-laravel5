@@ -66,6 +66,25 @@ body.modal-open {
     position: relative;
 }
 
+.listing-save {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+.listing-save .fa-heart-o {
+    color: #ffffff;
+}
+.listing-save .fa-heart {
+    color: #ff5a5f;
+}
+.listing-save i {
+    padding-right: 4px;
+}
+.listing-save button .fa-heart-o {
+    color: #808080;
+}
+
 .header {
     height: 320px;
 }
@@ -203,19 +222,6 @@ hr {
     display: flex;
     align-items: center;
     text-decoration: none;
-}
-
-.listing-save {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
-}
-.listing-save .fa-heart-o {
-    color: #ffffff;
-}
-.listing-save .fa-heart {
-    color: #ff5a5f;
 }
 
 .listing-summary {
