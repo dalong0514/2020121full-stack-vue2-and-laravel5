@@ -2173,6 +2173,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -2180,8 +2181,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var serverData = JSON.parse(window.vuebnb_server_data);
-var model = Object(_js_helpers__WEBPACK_IMPORTED_MODULE_0__["populateAmenitiesAndPrices"])(serverData.listing);
 /* harmony default export */ __webpack_exports__["default"] = ({
   mixins: [_js_route_mixin__WEBPACK_IMPORTED_MODULE_6__["default"]],
   data: function data() {
@@ -3182,10 +3181,12 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("header-image", {
-        attrs: { "image-url": _vm.images[0] },
-        on: { "header-clicked": _vm.openModal }
-      }),
+      _vm.images[0]
+        ? _c("header-image", {
+            attrs: { "image-url": _vm.images[0] },
+            on: { "header-clicked": _vm.openModal }
+          })
+        : _vm._e(),
       _vm._v(" "),
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "heading" }, [
@@ -19475,7 +19476,13 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     path: '/listing/:listing',
     component: _components_ListingPage_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     name: 'listing'
-  }]
+  }],
+  scrollBehavior: function scrollBehavior(to, from, savedPosition) {
+    return {
+      x: 0,
+      y: 0
+    };
+  }
 }));
 
 /***/ }),

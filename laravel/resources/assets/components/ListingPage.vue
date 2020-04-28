@@ -1,6 +1,7 @@
 <template>
     <div>
-        <header-image :image-url="images[0]" 
+        <header-image v-if="images[0]" 
+        :image-url="images[0]" 
         @header-clicked="openModal"></header-image>
         <div class="container">
             <div class="heading">
@@ -40,9 +41,6 @@
     import FeatureList from './FeatureList.vue';
     import ExpandableText from './ExpandableText.vue';
     import routeMixin from '../js/route-mixin';
-
-    let serverData = JSON.parse(window.vuebnb_server_data);
-    let model = populateAmenitiesAndPrices(serverData.listing);
 
     export default {
         mixins: [routeMixin],
