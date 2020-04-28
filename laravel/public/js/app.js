@@ -2344,6 +2344,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 var rowSize = 3;
@@ -2368,6 +2374,16 @@ var listingSummaryWidth = 365;
     style: function style() {
       return {
         transform: "translateX(".concat(this.offset * -listingSummaryWidth, "px)")
+      };
+    },
+    leftArrowStyle: function leftArrowStyle() {
+      return {
+        visibility: this.offset > 0 ? 'visible' : 'hidden'
+      };
+    },
+    rightArrowStyle: function rightArrowStyle() {
+      return {
+        visibility: this.offset < this.listings.length - rowSize ? 'visible' : 'hidden'
       };
     }
   },
@@ -3534,11 +3550,13 @@ var render = function() {
         { staticClass: "controls" },
         [
           _c("carousel-control", {
+            style: _vm.leftArrowStyle,
             attrs: { dir: "left" },
             on: { "change-image": _vm.change }
           }),
           _vm._v(" "),
           _c("carousel-control", {
+            style: _vm.rightArrowStyle,
             attrs: { dir: "right" },
             on: { "change-image": _vm.change }
           })
