@@ -205,8 +205,28 @@ hr {
     text-decoration: none;
 }
 
+.listing-save {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+.listing-save .fa-heart-o {
+    color: #ffffff;
+}
+.listing-save .fa-heart {
+    color: #ff5a5f;
+}
+
 .listing-summary {
     flex: 0 0 auto;
+    position: relative;
+}
+@media (max-width: 400px) {
+.listing-summary .listing-save {
+        left: 15px;
+        right: auto;
+}
 }
 .listing-summary a {
     text-decoration: none;

@@ -10,10 +10,12 @@
                 <div class="info address">{{ listing.address }}</div>
             </div>
         </router-link>
+        <listing-save :id="listing.id"></listing-save>
     </div>
 </template>
 
 <script>
+    import ListingSave from './ListingSave';
     export default {
         props: ['listing'],
         computed: {
@@ -23,12 +25,23 @@
                 }
             }
         },
+        components: {
+            ListingSave,
+        }
     }
 </script>
 
 <style>
     .listing-summary {
         flex: 0 0 auto;
+        position: relative;
+    }
+
+    @media (max-width: 400px) {
+        .listing-summary .listing-save {
+            left: 15px;
+            right: auto;
+        }
     }
 
     .listing-summary a {
