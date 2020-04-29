@@ -21216,7 +21216,9 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]({
 router.beforeEach(function (to, from, next) {
   var serverData = JSON.parse(window.vuebnb_server_data);
 
-  if (!serverData.path || to.path !== serverData.path) {
+  if (to.name === 'listing' ? _store__WEBPACK_IMPORTED_MODULE_2__["default"].getters.getListing(to.params.listing) : _store__WEBPACK_IMPORTED_MODULE_2__["default"].state.listing_summaries.length > 0) {
+    next();
+  } else if (!serverData.path || to.path !== serverData.path) {
     axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api".concat(to.path)).then(function (_ref) {
       var data = _ref.data;
       _store__WEBPACK_IMPORTED_MODULE_2__["default"].commit('addData', {
