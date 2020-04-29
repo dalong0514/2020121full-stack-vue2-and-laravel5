@@ -21274,7 +21274,9 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
-    saved: []
+    saved: [],
+    listing_summaries: [],
+    listings: []
   },
   mutations: {
     toggleSaved: function toggleSaved(state, id) {
@@ -21286,6 +21288,16 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
         state.saved.push(id);
       } else {
         state.saved.splice(index, 1);
+      }
+    },
+    addData: function addData(state, _ref) {
+      var route = _ref.route,
+          data = _ref.data;
+
+      if (route === 'listing') {
+        state.listings.push(data.listing);
+      } else {
+        state.listing_summaries = data.listings;
       }
     }
   }
