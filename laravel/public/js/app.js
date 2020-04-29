@@ -21182,38 +21182,9 @@ var groupByCountry = function groupByCountry(listings) {
   !*** ./resources/assets/js/route-mixin.js ***!
   \********************************************/
 /*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-
-
-function getData(to) {
-  return new Promise(function (resolve) {
-    var serverData = JSON.parse(window.vuebnb_server_data);
-
-    if (!serverData.path || to.path !== serverData.path) {
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api".concat(to.path)).then(function (_ref) {
-        var data = _ref.data;
-        resolve(data);
-      });
-    } else {
-      resolve(serverData);
-    }
-  });
-}
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  beforeRouteEnter: function beforeRouteEnter(to, from, next) {
-    getData(to).then(function (data) {
-      next(function (component) {
-        return component.assignData(data);
-      });
-    });
-  }
-});
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/Users/Daglas/GitHub/bookcode/2020121Full-Stack-Vuejs2-and-Laravel5/laravel/resources/assets/js/route-mixin.js'");
 
 /***/ }),
 
@@ -21228,24 +21199,33 @@ function getData(to) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _components_ListingPage_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/ListingPage.vue */ "./resources/assets/components/ListingPage.vue");
-/* harmony import */ var _components_HomePage_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/HomePage.vue */ "./resources/assets/components/HomePage.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./store */ "./resources/assets/js/store.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var _components_HomePage_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/HomePage.vue */ "./resources/assets/components/HomePage.vue");
+/* harmony import */ var _components_ListingPage_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/ListingPage.vue */ "./resources/assets/components/ListingPage.vue");
 
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
-/* harmony default export */ __webpack_exports__["default"] = (new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]);
+
+
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]({
   mode: 'history',
   routes: [{
     path: '/',
-    component: _components_HomePage_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    component: _components_HomePage_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
     name: 'home'
   }, {
     path: '/listing/:listing',
-    component: _components_ListingPage_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    component: _components_ListingPage_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
     name: 'listing'
+  }, {
+    path: '/saved',
+    component: SavedPage,
+    name: 'saved'
   }],
   scrollBehavior: function scrollBehavior(to, from, savedPosition) {
     return {
@@ -21253,7 +21233,28 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
       y: 0
     };
   }
-}));
+});
+router.beforeEach(function (to, from, next) {
+  var serverData = JSON.parse(window.vuebnb_server_data);
+
+  if (!serverData.path || to.path !== serverData.path) {
+    axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api".concat(to.path)).then(function (_ref) {
+      var data = _ref.data;
+      _store__WEBPACK_IMPORTED_MODULE_2__["default"].commit('addData', {
+        route: to.name,
+        data: data
+      });
+      next();
+    });
+  } else {
+    _store__WEBPACK_IMPORTED_MODULE_2__["default"].commit('addData', {
+      route: to.name,
+      data: serverData
+    });
+    next();
+  }
+});
+/* harmony default export */ __webpack_exports__["default"] = (router);
 
 /***/ }),
 
