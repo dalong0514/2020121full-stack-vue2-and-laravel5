@@ -2100,8 +2100,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../js/helpers */ "./resources/assets/js/helpers.js");
-/* harmony import */ var _js_route_mixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../js/route-mixin */ "./resources/assets/js/route-mixin.js");
-/* harmony import */ var _ListingSummaryGroup_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ListingSummaryGroup.vue */ "./resources/assets/components/ListingSummaryGroup.vue");
+/* harmony import */ var _ListingSummaryGroup_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ListingSummaryGroup.vue */ "./resources/assets/components/ListingSummaryGroup.vue");
 //
 //
 //
@@ -2114,24 +2113,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_js_route_mixin__WEBPACK_IMPORTED_MODULE_1__["default"]],
-  data: function data() {
-    return {
-      listing_groups: []
-    };
-  },
-  methods: {
-    assignData: function assignData(_ref) {
-      var listings = _ref.listings;
-      this.listing_groups = Object(_js_helpers__WEBPACK_IMPORTED_MODULE_0__["groupByCountry"])(listings);
+  computed: {
+    listing_groups: function listing_groups() {
+      return Object(_js_helpers__WEBPACK_IMPORTED_MODULE_0__["groupByCountry"])(this.$store.state.listing_summaries);
     }
   },
   components: {
-    ListingSummaryGroup: _ListingSummaryGroup_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    ListingSummaryGroup: _ListingSummaryGroup_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   }
 });
 
@@ -2207,7 +2198,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _HeaderImage_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./HeaderImage.vue */ "./resources/assets/components/HeaderImage.vue");
 /* harmony import */ var _FeatureList_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FeatureList.vue */ "./resources/assets/components/FeatureList.vue");
 /* harmony import */ var _ExpandableText_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ExpandableText.vue */ "./resources/assets/components/ExpandableText.vue");
-/* harmony import */ var _js_route_mixin__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../js/route-mixin */ "./resources/assets/js/route-mixin.js");
 //
 //
 //
@@ -2244,7 +2234,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 
 
 
@@ -2252,7 +2241,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mixins: [_js_route_mixin__WEBPACK_IMPORTED_MODULE_6__["default"]],
   data: function data() {
     return {
       title: null,
@@ -2271,11 +2259,17 @@ __webpack_require__.r(__webpack_exports__);
     FeatureList: _FeatureList_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
     ExpandableText: _ExpandableText_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
+  computed: {
+    listing: function listing() {
+      var _this = this;
+
+      var listing = this.$store.state.listings.find(function (listing) {
+        return listing.id == _this.$route.params.listing;
+      });
+      return Object(_js_helpers__WEBPACK_IMPORTED_MODULE_0__["populateAmenitiesAndPrices"])(listing);
+    }
+  },
   methods: {
-    assignData: function assignData(_ref) {
-      var listing = _ref.listing;
-      Object.assign(this.$data, Object(_js_helpers__WEBPACK_IMPORTED_MODULE_0__["populateAmenitiesAndPrices"])(listing));
-    },
     openModal: function openModal() {
       this.$refs.imagemodal.modalOpen = true;
     }
@@ -2344,7 +2338,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ListingSave__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ListingSave */ "./resources/assets/components/ListingSave.vue");
+/* harmony import */ var _ListingSave_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ListingSave.vue */ "./resources/assets/components/ListingSave.vue");
 //
 //
 //
@@ -2372,7 +2366,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   components: {
-    ListingSave: _ListingSave__WEBPACK_IMPORTED_MODULE_0__["default"]
+    ListingSave: _ListingSave_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
 
@@ -3466,18 +3460,18 @@ var render = function() {
   return _c(
     "div",
     [
-      _vm.images[0]
+      _vm.listing.images[0]
         ? _c("header-image", {
-            attrs: { "image-url": _vm.images[0], id: _vm.id },
+            attrs: { "image-url": _vm.listing.images[0], id: _vm.listing.id },
             on: { "header-clicked": _vm.openModal }
           })
         : _vm._e(),
       _vm._v(" "),
       _c("div", { staticClass: "listing-container" }, [
         _c("div", { staticClass: "heading" }, [
-          _c("h1", [_vm._v(_vm._s(_vm.title))]),
+          _c("h1", [_vm._v(_vm._s(_vm.listing.title))]),
           _vm._v(" "),
-          _c("p", [_vm._v(_vm._s(_vm.address))])
+          _c("p", [_vm._v(_vm._s(_vm.listing.address))])
         ]),
         _vm._v(" "),
         _c("hr"),
@@ -3488,7 +3482,7 @@ var render = function() {
           [
             _c("h3", [_vm._v("About this listing")]),
             _vm._v(" "),
-            _c("expandable-text", [_vm._v(_vm._s(_vm.about))])
+            _c("expandable-text", [_vm._v(_vm._s(_vm.listing.about))])
           ],
           1
         ),
@@ -3498,7 +3492,7 @@ var render = function() {
           { staticClass: "lists" },
           [
             _c("feature-list", {
-              attrs: { title: "Amenities", items: _vm.amenities },
+              attrs: { title: "Amenities", items: _vm.listing.amenities },
               scopedSlots: _vm._u([
                 {
                   key: "default",
@@ -3514,7 +3508,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("feature-list", {
-              attrs: { title: "Prices", items: _vm.prices },
+              attrs: { title: "Prices", items: _vm.listing.prices },
               scopedSlots: _vm._u([
                 {
                   key: "default",
@@ -3537,7 +3531,7 @@ var render = function() {
       _c(
         "modal-window",
         { ref: "imagemodal" },
-        [_c("image-carousel", { attrs: { images: _vm.images } })],
+        [_c("image-carousel", { attrs: { images: _vm.listing.images } })],
         1
       )
     ],
@@ -3583,7 +3577,7 @@ var render = function() {
             _c("i", { class: _vm.classes }),
             _vm._v("\n        " + _vm._s(_vm.message) + "\n    ")
           ])
-        : _vm._e()
+        : _c("i", { class: _vm.classes })
     ]
   )
 }
@@ -21177,17 +21171,6 @@ var groupByCountry = function groupByCountry(listings) {
 
 /***/ }),
 
-/***/ "./resources/assets/js/route-mixin.js":
-/*!********************************************!*\
-  !*** ./resources/assets/js/route-mixin.js ***!
-  \********************************************/
-/*! exports provided: default */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/Users/Daglas/GitHub/bookcode/2020121Full-Stack-Vuejs2-and-Laravel5/laravel/resources/assets/js/route-mixin.js'");
-
-/***/ }),
-
 /***/ "./resources/assets/js/router.js":
 /*!***************************************!*\
   !*** ./resources/assets/js/router.js ***!
@@ -21222,11 +21205,12 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]({
     path: '/listing/:listing',
     component: _components_ListingPage_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
     name: 'listing'
-  }, {
-    path: '/saved',
-    component: SavedPage,
-    name: 'saved'
-  }],
+  } // {
+  //     path: '/saved',
+  //     component: SavedPage,
+  //     name: 'saved',
+  // },
+  ],
   scrollBehavior: function scrollBehavior(to, from, savedPosition) {
     return {
       x: 0,

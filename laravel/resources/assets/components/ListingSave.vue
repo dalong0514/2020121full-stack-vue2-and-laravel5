@@ -4,7 +4,7 @@
             <i :class="classes"></i>
             {{ message }}
         </button>
-
+        <i v-else :class="classes"></i>
     </div>
 </template>
 

@@ -15,7 +15,7 @@
 </template>
 
 <script>
-    import ListingSave from './ListingSave';
+    import ListingSave from './ListingSave.vue';
     export default {
         props: ['listing'],
         computed: {
