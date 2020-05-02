@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ListingModel;
+use Illuminate\Support\Facades\Auth;
 
 class ListingController extends Controller
 {
@@ -18,9 +19,12 @@ class ListingController extends Controller
     }
 
     // adding a path to the model
+    // retrieving saved items from the database
     private function add_meta_data($collection, $request) {
         return $collection->merge([
-            'path' => $request->getPathInfo()
+            'path' => $request->getPathInfo(),
+            'auth' => Auth::check(),
+            'saved' => Auth::check() ? Auth::user()->saved : [],
         ]);
     }
 
@@ -64,4 +68,5 @@ class ListingController extends Controller
         $data = $this->get_listing_summaries();
         return response()->json($data);
     }
+
 }
