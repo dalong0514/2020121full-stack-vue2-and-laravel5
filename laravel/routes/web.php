@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/listing/{listing}', function(ListingModel $listing) {
@@ -20,3 +22,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/listing/{listing}', 'ListingController@get_listing_web');
 Route::get('/', 'ListingController@get_home_web');
 Route::get('/saved', 'ListingController@get_home_web');
+
+Auth::routes();

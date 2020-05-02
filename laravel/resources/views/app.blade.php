@@ -9,6 +9,7 @@
     <script type="text/javascript">
         window.vuebnb_server_data = "{!!addslashes(json_encode($data))!!}";
         console.log(JSON.parse(window.vuebnb_server_data));
+        window.csrf_token = "{{ csrf_token() }}";
     </script>
 </head>
 <body>
